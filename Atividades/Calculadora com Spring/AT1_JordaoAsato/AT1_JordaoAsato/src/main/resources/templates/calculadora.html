@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resultado</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Resultado</h1>
+
+<p>
+    <span th:text="${n1HTML}"></span>
+    <span th:text="${opHTML}"></span>
+    <span th:text="${n2HTML}"></span>
+    =
+    <span th:text="${resultado}"></span>
+</p>
+<p th:if="${error}" th:text="${error}" style="color: red;"></p>
+
+<a href="/">Voltar</a>
+</body>
+</html>
