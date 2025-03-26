@@ -1,0 +1,10 @@
+Os alunos devem implementar um cadastro de produtos com as seguintes funcionalidades:
+
+• Busca de produtos: tela contendo tabela que retorna todos os elementos presentes no banco de dados. 
+• Cadastro de produtos.
+• Alteração de cadastro de produto.
+• Exclusão de produto.
+
+O programa deve ser implementado utilizando o padrão MVC com Spring Framework e Thymeleaf. 
+
+A tabela do banco de dados onde serão persistidas as informações está implementada de acordo com o script em anexo.
