@@ -1,0 +1,10 @@
+CREATE DATABASE lojadb;
+
+USE lojadb;
+
+CREATE TABLE produto (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  nome varchar(200) NOT NULL,
+  preco double NOT NULL,
+  quantidade int DEFAULT NULL
+);
