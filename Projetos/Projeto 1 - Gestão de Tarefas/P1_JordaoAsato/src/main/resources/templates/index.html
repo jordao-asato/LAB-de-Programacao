@@ -1,0 +1,49 @@
+<div th:switch="${tarefas}" xmlns="http://www.w3.org/1999/html">
+    <h2 th:case="null">Ainda não há tarefas!</h2>
+    <div th:case="*">
+        <h2>Tarefas</h2>
+        <table border="5">
+            <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Prazo para Conclusão</th>
+                <th>Status</th>
+                <th>Remover</th>
+                <th>Concluir</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="tarefa : ${tarefas}">
+                <td th:text="${tarefa.titulo}"></td>
+                <td th:text="${tarefa.descricao}"></td>
+                <td th:text="${#dates.format(tarefa.prazoConclusao, 'dd/MM/yyyy')}"></td>
+                <td th:text="${tarefa.concluida ? 'Concluída' : 'Não Concluída'}"></td>
+                <td><a th:href="@{/remover/{id}(id=${tarefa.id})}">Remover</a></td>
+                <td><a th:href="@{/concluir/{id}(id=${tarefa.id})}">Concluir</a></td>
+            </tr>
+            </tbody>
+            <tr>
+                <form action="/filtrar" method="get">
+                    <label for="palavraChave">Palavra-Chave:</label>
+                    <input type="text" id="palavraChave" name="palavraChave">
+                    <br/>
+                    <label for="status">Status:</label>
+                    <select id="status" name="status">
+                        <option value="">Todos</option>
+                        <option value="true">Concluídas</option>
+                        <option value="false">Não Concluídas</option>
+                    </select>
+                    <br/>
+                    <label for="prazo">Prazo:</label>
+                    <input type="date" id="prazo" name="prazo">
+                    <br/>
+                    <button type="submit">Aplicar Filtros</button>
+                    <a href="/limpar-filtros">Limpar Filtros</a> <br/> <br/>
+                </form>
+            </tr>
+        </table>
+    </div>
+    <p><a href="/nova-tarefa">Adicionar uma nova tarefa</a></p>
+    <p><a href="/concluidas">Ver tarefas já concluídas</a></p>
+</div>

@@ -1,0 +1,19 @@
+<h2>Tarefas Concluídas</h2>
+<table border="5">
+  <thead>
+  <tr>
+    <th>Título</th>
+    <th>Descrição</th>
+    <th>Prazo de Conclusão</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="tarefa : ${sessionConcluidas}">
+    <td th:text="${tarefa.titulo}"></td>
+    <td th:text="${tarefa.descricao}"></td>
+    <td th:text="${#dates.format(tarefa.prazoConclusao, 'dd/MM/yyyy')}"></td>
+    <td><a th:href="@{/concluidas/remover/{id}(id=${tarefa.id})}">Desmarcar como concluída?</a></td>
+  </tr>
+  </tbody>
+</table>
+<p><a href="/index">Listar todas as tarefas</a></p>
